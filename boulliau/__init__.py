@@ -20,4 +20,10 @@ if sys.version_info < tuple((int(val) for val in __minimum_python_version__.spli
 
 if not _ASTROPY_SETUP_:
     # For egg_info test builds to pass, put package imports here.
-    pass
+
+    from .regression import *
+    from .star_selection import *
+    from .reduction import *
+    from .photometry_results import *
+    from .pca import *
+    from .cals import *
