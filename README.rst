@@ -4,7 +4,7 @@ Differential photometry with the ARCSAT 0.5 m Telescope
 .. image:: https://travis-ci.org/bmorris3/boulliau.svg?branch=master
     :target: https://travis-ci.org/bmorris3/boulliau
 
-.. image:: //readthedocs.org/projects/boulliau/badge/?version=latest
+.. image:: https://readthedocs.org/projects/boulliau/badge/?version=latest
     :target: https://boulliau.readthedocs.io/en/latest/?badge=latest
     :alt: Documentation Status
 
