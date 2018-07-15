@@ -14,5 +14,6 @@ dependencies:
     - scikit-image
     - photutils
     - sphinx-astropy
+    - h5py
     - pip:
        - batman-package
