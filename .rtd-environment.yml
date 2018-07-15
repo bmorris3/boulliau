@@ -8,5 +8,9 @@ dependencies:
     - Cython
     - matplotlib
     - numpy
-#   - pip:
-#       - dependency_from_pip
+    - scikit-learn
+    - scikit-image
+    - photutils
+   - pip:
+       - batman-package
+       - pyfftw
