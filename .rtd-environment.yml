@@ -9,6 +9,7 @@ dependencies:
     - Cython
     - matplotlib
     - numpy
+    - scipy
     - scikit-learn
     - scikit-image
     - photutils

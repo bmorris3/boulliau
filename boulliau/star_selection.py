@@ -9,7 +9,6 @@ from astropy.io import fits
 from photutils import CircularAperture
 
 from astropy.convolution import convolve_fft, Tophat2DKernel
-from pyfftw.interfaces.scipy_fftpack import fft2, ifft2
 
 __all__ = ['init_centroids']
 
@@ -21,6 +20,12 @@ def init_centroids(first_image_path, master_flat, master_dark, target_centroid,
                              for path in first_image_path], axis=0)
 
     tophat_kernel = Tophat2DKernel(5)
+
+    try:
+        from pyfftw.interfaces.scipy_fftpack import fft2, ifft2
+    except ImportError:
+        from scipy.fftpack import fft2, ifft2
+
     convolution = convolve_fft(first_image, tophat_kernel, fftn=fft2, ifftn=ifft2)
 
     convolution -= np.median(convolution)
