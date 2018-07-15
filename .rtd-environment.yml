@@ -13,4 +13,3 @@ dependencies:
     - photutils
     - pip:
        - batman-package
-       - pyfftw
