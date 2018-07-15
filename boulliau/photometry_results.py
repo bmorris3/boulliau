@@ -4,9 +4,9 @@ __all__ = ['PhotometryResults']
 
 
 class PhotometryResults(object):
-    def __init__(self, times, fluxes, errors, xcentroids, ycentroids, airmass,
-                 background_median, psf_stddev,
-                 aperture_radii):
+    def __init__(self, times, fluxes, errors=None, xcentroids=None,
+                 ycentroids=None, airmass=None, background_median=None,
+                 psf_stddev=None, aperture_radii=None):
         self.times = times
         self.fluxes = fluxes
         self.errors = errors

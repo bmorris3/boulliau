@@ -3,9 +3,7 @@ from __future__ import (absolute_import, division, print_function,
 
 import numpy as np
 from matplotlib import pyplot as plt
-
 from astropy.stats import mad_std
-from astropy.io import fits
 from photutils import CircularAperture
 
 from astropy.convolution import convolve_fft, Tophat2DKernel
@@ -13,11 +11,8 @@ from astropy.convolution import convolve_fft, Tophat2DKernel
 __all__ = ['init_centroids']
 
 
-def init_centroids(first_image_path, master_flat, master_dark, target_centroid,
+def init_centroids(first_image, target_centroid,
                    min_flux=0.2, plots=False):
-
-    first_image = np.median([(fits.getdata(path) - master_dark)/master_flat
-                             for path in first_image_path], axis=0)
 
     tophat_kernel = Tophat2DKernel(5)
 
@@ -37,21 +32,21 @@ def init_centroids(first_image_path, master_flat, master_dark, target_centroid,
     from skimage.filters import threshold_yen
     from skimage.measure import label, regionprops
 
-    thresh = threshold_yen(convolution)/4 # Use /4 for planet c, /2 for planet b
+    thresh = threshold_yen(convolution)
 
     masked = np.ones_like(convolution)
     masked[convolution <= thresh] = 0
 
     label_image = label(masked)
 
-    plt.figure()
-    plt.imshow(label_image, origin='lower', cmap=plt.cm.viridis)
-    plt.show()
+    # plt.figure()
+    # plt.imshow(label_image, origin='lower', cmap=plt.cm.viridis)
+    # plt.show()
 
     regions = regionprops(label_image, first_image)
 
     # reject regions near to edge of detector
-    buffer_pixels = 50
+    buffer_pixels = 5
     regions = [region for region in regions
                if ((region.weighted_centroid[0] > buffer_pixels and
                    region.weighted_centroid[0] < label_image.shape[0] - buffer_pixels)
