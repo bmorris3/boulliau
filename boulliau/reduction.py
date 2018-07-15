@@ -8,7 +8,6 @@ from astropy.utils.console import ProgressBar
 from astropy.modeling import models, fitting
 from photutils import CircularAperture, CircularAnnulus, aperture_photometry
 
-from .star_selection import init_centroids
 from .photometry_results import PhotometryResults
 
 __all__ = ['photometry']

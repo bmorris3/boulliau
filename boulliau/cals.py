@@ -76,7 +76,7 @@ def generate_master_flat_and_dark(flat_paths, dark_paths, master_flat_path,
     fits.writeto(master_flat_path, master_flat, clobber=True)
 
 
-def test_flat(image_path, master_flat_path, master_dark_path):
+def _test_flat(image_path, master_flat_path, master_dark_path):
     import matplotlib.pyplot as plt
 
     image_no_flat = fits.getdata(image_path) - fits.getdata(master_dark_path)

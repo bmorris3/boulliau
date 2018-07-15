@@ -6,7 +6,11 @@ Differential photometry with the ARCSAT 0.5 m Telescope
     :alt: Powered by Astropy Badge
 
 Open source python toolkit for differential photometry with the ARCSAT 0.5 m
-Telescope at Apache Point Observatory.
+Telescope at Apache Point Observatory. Do ARCSAT photometry, and simultaneously
+be happier than this guy!
+
+.. image:: https://upload.wikimedia.org/wikipedia/commons/9/9e/Ismaël_Boulliau.jpeg
+    :alt: Ismael Boulliau
 
 
 License
